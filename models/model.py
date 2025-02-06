@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 import os
 
@@ -9,3 +10,10 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 # banco  = DATABASE_URL.split('/')[-1]
 
 db = create_engine(DATABASE_URL)
+Session = sessionmaker(bind=db)
+session = Session()
+
+
+Base = declarative_base()
+
+Base.metadata.create_all(bind=db)
