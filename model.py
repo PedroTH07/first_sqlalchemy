@@ -27,6 +27,9 @@ class Usuario(Base):
         self.senha = senha
         self.ativo = ativo
     
+    def __repr__(self):
+        return f'Usuario(id={self._id}, nome={self.nome}, email={self.senha}, ativo={self.ativo})'
+    
 
 class Livro(Base):
     __tablename__ = 'livros'
@@ -39,6 +42,9 @@ class Livro(Base):
         self.titulo = titulo
         self.qtde_paginas = qtde_paginas
         self.dono = dono
+
+    def __repr__(self):
+        return f'Livro(id={self._id}, titulo={self.titulo}, qtde_paginas={self.qtde_paginas}, id_dono={self.dono})'
     
 
 if __name__ == '__main__':
